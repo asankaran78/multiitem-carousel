@@ -1,0 +1,12 @@
+.carouselDisplay {
+    height: 87px ;
+    background: #EDF0F4;
+    font-family:'Roboto', sans-serif;
+    font-size: 12px;
+}
+
+.carouselInner {
+    font-family:'Roboto', sans-serif;
+    font-size: 11px;
+    text-align: center;
+}
