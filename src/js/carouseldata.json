@@ -1,0 +1,42 @@
+  
+   "navSummary":{  
+      "totalCount":6,
+      "response":[  
+         {  
+            "fundName":"Franklin Group Investor's Fund (FCGLX)",
+            "navStatus":"Awaiting Approval",
+            "navType":"Expense",
+            "asOfDate":"06/04/2018"
+         },
+         {  
+            "fundName":"Franklin Group Investor's Fund (FCGLX)",
+            "navStatus":"Awaiting Approval",
+            "navType":"Cash",
+            "asOfDate":"06/03/2018"
+         },
+         {  
+            "fundName":"Franklin Group Institutional Index Fund (FCGVLX)",
+            "navStatus":"Approved",
+            "navType":"NAV",
+            "asOfDate":"06/03/2018"
+         },
+         {  
+            "fundName":"Franklin Group Younder's Participants Fund (FCGYPX)",
+            "navStatus":"Approved",
+            "navType":"Expense",
+            "asOfDate":"06/02/2018"
+         },
+         {  
+            "fundName":"Franklin Federal 500 Index Fund (FCGYPX)",
+            "navStatus":"Approved",
+            "navType":"Expense",
+            "asOfDate":"06/02/2018"
+         },
+         {  
+            "fundName":"Fidelity Select Energy Portfolio Fund (FSENX)",
+            "navStatus":"Approved",
+            "navType":"NAV",
+            "asOfDate":"01/03/2019"
+         }
+      ]
+   }
