@@ -1,6 +1,7 @@
 import React from 'react';
 import ItemsCarousel from 'react-items-carousel';
 import range from 'lodash/range';
+import myJson from "./carouseldata.json";
 
 class MultiItemsCarousel extends React.Component {
   componentWillMount() {
