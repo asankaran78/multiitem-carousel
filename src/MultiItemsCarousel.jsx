@@ -1,14 +1,16 @@
-import React from 'react';
-import ItemsCarousel from 'react-items-carousel';
-import range from 'lodash/range';
+import React from "react";
+import ItemsCarousel from "react-items-carousel";
 import myJson from "./carouseldata.json";
+import NavApproval from "./NavApproval";
 
 class MultiItemsCarousel extends React.Component {
   componentWillMount() {
     this.setState({
       children: [],
       activeItemIndex: 0,
-      navSummary: myJson.navSummary
+      navSummary: myJson.navSummary,
+      workflowType:'',
+      fundId:''
     });
 
     setTimeout(() => {
@@ -18,6 +20,12 @@ class MultiItemsCarousel extends React.Component {
     }, 100);
   }
 
+  handleIndexClick = event => {
+    this.setState({
+       workflowType: event.target.dataset.workflowtype,
+       fundId:event.target.dataset.navstatus
+    });
+  }
 
   createChildren = () =>{
     var arr = [];
@@ -25,11 +33,13 @@ class MultiItemsCarousel extends React.Component {
         arr.push(<div
           key={i + 1}
           className="carouselDisplay"
-          onClick={this.handleIndexClick}
+          onClick={this.handleIndexClick}       
+         
         >
-          <p>{this.state.navSummary.response[i].fundName}</p>
+          <p data-workflowtype={this.state.navSummary.response[i].fundName}
+          data-navstatus={this.state.navSummary.response[i].navStatus}>{this.state.navSummary.response[i].fundName} </p>
           <p />
-          <span className="carouselInner">{this.state.navSummary.response[i].navStatus}</span>
+          <span  className="carouselInner" >{this.state.navSummary.response[i].navStatus}  </span>
         </div>);
     }
     return arr;
@@ -42,6 +52,7 @@ class MultiItemsCarousel extends React.Component {
     const { activeItemIndex, children } = this.state;
 
     return (
+      <div>
       <ItemsCarousel
         // Placeholder configurations
         enablePlaceholder
@@ -69,6 +80,10 @@ class MultiItemsCarousel extends React.Component {
       >
         {children}
       </ItemsCarousel>
+      <NavApproval  
+      workflowType = {this.state.workflowType}
+      fundId = {this.state.fundId}/>
+      </div>
     );
   }
 }
