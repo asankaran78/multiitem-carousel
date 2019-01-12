@@ -1,23 +1,113 @@
+@import url(http://fonts.googleapis.com/css?family=Roboto+Condensed:400,300,700);
+
 .carouselDisplay {
-  height: 87px;
-  background: #edf0f4;
-  font-family: "Roboto", sans-serif;
-  font-size: 12px;
+    height: 92px ;
+    width:180px;
+    background: #EDF0F4 ;
 }
 
-.carouselInner {
-  font-family: "Roboto", sans-serif;
-  font-size: 11px;
-  text-align: center;
-  display:block;
+.carouselDisplayPressed {
+  height: 92px ;
+  width:180px;
+  background: #AFE3E8  ;
 }
 
-.sideBar {
-  height: 20%;
-  margin-left: 100%;
-  width:20%;
-  background: #edf0f4;
-  font-family: "Roboto", sans-serif;
-  font-size: 12px;
-  display:block;
+p.carouselDisplayFundName {
+    font-family:'Roboto';
+    text-align: left;
+    font-size:  12px;
+    margin-left: 2%;
+    margin-top:2px;
+    margin-right: 10%;
+    height: 30%;
 }
+
+p.carouselInner {
+    font-family: "Roboto";
+    font-size: 11px;
+    text-align: center;
+    display:block;
+    color:#808080;
+  }
+
+  p.carouselWorkFlowStatus {
+    border-radius: 40px;
+    border: 1px solid rgb(155, 155, 155);
+    text-align:center;
+    font-size:11px;
+    width: 77px;
+    height: 19px;  
+    background: white;
+    color: #4A85BA;
+  }
+
+
+.spaninfoWorkflow {
+   font-family: "Roboto", sans-serif;
+   font-size: 11px;
+   text-align: center;
+   word-spacing: 4em;
+   margin-left:0;
+   display:block;
+ }
+  
+  .sideBar {
+    height: 10%;
+    margin-left: 100%;
+    margin-top: 5%;
+    width:23%;
+    background: #F5F5F5 ;
+  }
+
+  p.titleCaps{
+    margin-top:5%;
+    font-family: "Roboto", sans-serif;
+    font-size: 12px;
+    display:block;
+    text-align: left;
+    color: #808080;
+  }
+
+  p.title{
+    margin-top:5%;
+    font-family: "Roboto", sans-serif;
+    font-size: 14px;
+    display:block;
+    text-align: left;
+    color: #4D4D4D ;
+  }
+
+  p.statusInfo {
+    border-radius: 40px;
+    border: 1px solid rgb(155, 155, 155);
+    text-align:left;
+    font-size:11px;
+    width: 77px;
+    height: 19px;  
+    background: white;
+    color: #4A85BA;
+    display:block;
+    margin-left: -60%;
+    text-align:center;
+  }
+
+  p.sideBarInfo {
+    text-align:left;
+    font-size:18px;
+    font-family: "Roboto Condensed";
+    font-weight: 100;
+    color: #666666 ;
+    display:block;
+    text-align:left;
+  }
+
+  p.sideBarHistory {
+    text-align:left;
+    font-size:11px;
+    font-family: "Roboto";
+    font-weight: 100;
+    color: #666666 ;
+    display:block;
+    text-align:left;
+  }
+
