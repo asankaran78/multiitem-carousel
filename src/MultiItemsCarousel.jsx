@@ -1,16 +1,23 @@
 import React from "react";
 import ItemsCarousel from "react-items-carousel";
 import myJson from "./carouseldata.json";
-import NavApproval from "./NavApproval";
+import SideDataBar from "./SideDataBar";
+import statusImage from "./icon-pending.svg";
 
 class MultiItemsCarousel extends React.Component {
   componentWillMount() {
     this.setState({
       children: [],
+      workflowhistory:[],
       activeItemIndex: 0,
-      navSummary: myJson.navSummary,
-      workflowType:'',
-      fundId:''
+      navSummary: myJson.responseData.data,
+      workflowstatus:'',
+      workflowtype:'',
+      asofdate:'',
+      funddetails:'',
+      amountinfo:'',
+      parentclass:'carouselDisplay',
+      render:false
     });
 
     setTimeout(() => {
@@ -21,25 +28,59 @@ class MultiItemsCarousel extends React.Component {
   }
 
   handleIndexClick = event => {
+    
     this.setState({
-       workflowType: event.target.dataset.workflowtype,
-       fundId:event.target.dataset.navstatus
+       funddetails:event.currentTarget.dataset.fundDetails,
+       workflowtype:event.currentTarget.dataset.workflowType,
+       workflowstatus:event.currentTarget.dataset.workflowStatus,
+       asofdate:this.convertDate(event.currentTarget.dataset.asOfDate),
+       amountinfo:event.currentTarget.dataset.amountInfo,
+       workflowhistory: event.currentTarget.dataset.workflowHistory,
+       parentclass:"carouselDisplayPressed",
+       render:true
     });
+     
   }
+
+  convertDate = (inputDate) => {
+
+    var dateInput = new Date(parseInt(inputDate));
+    const month = dateInput.toLocaleString('en-us', { month: 'long' });
+    const day =   dateInput.getUTCDate();
+    const year =  dateInput.getUTCFullYear();
+    return(month + " "+ day+ ","+ " "+ year);
+  }
+
+  renderWorkflowStatus =(workflowStatus) =>{
+    if(workflowStatus=="Pending") {
+        return (
+          <img src={statusImage} alt={"Status"} style={{ width: "12px", height:"12px",align:"left" }}/>
+        );
+      } 
+}
 
   createChildren = () =>{
     var arr = [];
     for(let i=0;i<this.state.navSummary.response.length;i++){
         arr.push(<div
           key={i + 1}
-          className="carouselDisplay"
-          onClick={this.handleIndexClick}       
-         
+          className={this.state.parentclass}
+          onClick={this.handleIndexClick}    
+          data-as-of-date={this.state.navSummary.response[i].asOfDate}  
+          data-workflow-status={this.state.navSummary.response[i].workflowStatus} 
+          data-workflow-type={this.state.navSummary.response[i].workflowType} 
+          data-fund-details={this.state.navSummary.response[i].fundName + "(" + this.state.navSummary.response[i].fundCode +")"} 
+          data-workflow-history={ JSON.stringify(this.state.navSummary.response[i].workflowHistory)}
+          data-amount-info={(() => {
+            if(this.state.navSummary.response[i].fundCurrencyType === "USD"){
+              return "$" + this.state.navSummary.response[i].amount;
+            }
+          })()
+        } 
         >
-          <p data-workflowtype={this.state.navSummary.response[i].fundName}
-          data-navstatus={this.state.navSummary.response[i].navStatus}>{this.state.navSummary.response[i].fundName} </p>
-          <p />
-          <span  className="carouselInner" >{this.state.navSummary.response[i].navStatus}  </span>
+          <p className="carouselDisplayFundName">{this.state.navSummary.response[i].fundName} ( {this.state.navSummary.response[i].fundCode} ) </p>
+          <p className="carouselWorkFlowStatus">{this.renderWorkflowStatus(this.state.navSummary.response[i].workflowStatus)} {this.state.navSummary.response[i].workflowStatus}</p>
+          <p className="carouselInner" >{this.state.navSummary.response[i].workflowType}  </p>
         </div>);
     }
     return arr;
@@ -59,12 +100,12 @@ class MultiItemsCarousel extends React.Component {
         numberOfPlaceholderItems={20}
         minimumPlaceholderTime={1000}
         placeholderItem={
-          <div style={{ height: 87, background: "#900", align: "center" }}>
+          <div style={{ height: "90px", background: "#FFFFFF", align: "center" }}>
             Placeholder
           </div>
         }
         // Carousel configurations
-        numberOfCards={6}
+        numberOfCards={5}
         gutter={12}
         showSlither={true}
         firstAndLastGutter={true}
@@ -73,16 +114,24 @@ class MultiItemsCarousel extends React.Component {
         requestToChangeActive={this.changeActiveItem}
         activeItemIndex={activeItemIndex}
         activePosition={"center"}
-        chevronWidth={25}
+        chevronWidth={20}
         rightChevron={">"}
         leftChevron={"<"}
         outsideChevron={false}
       >
         {children}
       </ItemsCarousel>
-      <NavApproval  
-      workflowType = {this.state.workflowType}
-      fundId = {this.state.fundId}/>
+       { this.state.render ?
+        <SideDataBar  
+        workflowStatus = {this.state.workflowstatus}
+        workflowtype = {this.state.workflowtype}
+        asofdate={this.state.asofdate}
+        funddetails={this.state.funddetails}
+        amountinfo={this.state.amountinfo}
+        workflowhistory={this.state.workflowhistory}/> :null
+      }
+      
+      
       </div>
     );
   }
