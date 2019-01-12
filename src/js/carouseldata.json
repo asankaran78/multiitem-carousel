@@ -1,42 +1,153 @@
-  
-   "navSummary":{  
-      "totalCount":6,
-      "response":[  
-         {  
-            "fundName":"Franklin Group Investor's Fund (FCGLX)",
-            "navStatus":"Awaiting Approval",
-            "navType":"Expense",
-            "asOfDate":"06/04/2018"
-         },
-         {  
-            "fundName":"Franklin Group Investor's Fund (FCGLX)",
-            "navStatus":"Awaiting Approval",
-            "navType":"Cash",
-            "asOfDate":"06/03/2018"
-         },
-         {  
-            "fundName":"Franklin Group Institutional Index Fund (FCGVLX)",
-            "navStatus":"Approved",
-            "navType":"NAV",
-            "asOfDate":"06/03/2018"
-         },
-         {  
-            "fundName":"Franklin Group Younder's Participants Fund (FCGYPX)",
-            "navStatus":"Approved",
-            "navType":"Expense",
-            "asOfDate":"06/02/2018"
-         },
-         {  
-            "fundName":"Franklin Federal 500 Index Fund (FCGYPX)",
-            "navStatus":"Approved",
-            "navType":"Expense",
-            "asOfDate":"06/02/2018"
-         },
-         {  
-            "fundName":"Fidelity Select Energy Portfolio Fund (FSENX)",
-            "navStatus":"Approved",
-            "navType":"NAV",
-            "asOfDate":"01/03/2019"
-         }
-      ]
-   }
+{
+    "status": "OK",
+    "created": "Jan 8, 2019 9:36:50 PM",
+    "responseData":{
+        "data": {
+            "totalCount" : 6,
+            "response":[
+                {
+                    "workflowId":1,
+                    "fundId" : "1234",
+                    "fundName":"Franklin Group Investor's Fund ",
+                    "fundCode" : "FCGLX",
+                    "workflowStatus" : "Pending",
+                    "workflowType": "EXPENSE",
+                    "amount":"23667.12",
+                    "fundCurrencyType": "USD",
+                    "asOfDate" : 1541983070066,
+                    "workflowHistory" :
+                        [
+                            {  
+                                "postedBy" : "Kyle",
+                                "postedDate" :1541983070066,
+                                "description" : "Initiated On"
+                            },
+                            {  
+                                "postedBy" : "James",
+                                "postedDate" :1541983070066,
+                                "description" : "Approved On"
+                            }
+                        ]
+                    
+                },
+                {
+                    "workflowId":2,
+                    "fundId" :"23456",
+                    "fundCode" : "FCGLX",
+                    "fundName":"Franklin Group Investor's Fund",
+                    "workflowStatus" : "Pending",
+                    "workflowType": "CASH",
+                    "asOfDate" : 1541953070066,
+                    "amount":"23667.12",
+                    "fundCurrencyType": "USD",
+                    "workflowHistory" :
+                        [
+                            {  
+                                "postedBy" : "Taylor",
+                                "postedDate" :1541983070066,
+                                "description" : "Initiated On"
+                            },
+                            {  
+                                "postedBy" : "Tom",
+                                "postedDate" :1541983070066,
+                                "description" : "Approved On"
+                            }
+                        ]
+                },
+                {
+                    "workflowId":3,
+                    "fundName":"Franklin Group Institutional Index Fund",
+                    "fundId" :"6789",
+                    "fundCode" : "FCGVLX",
+                    "workflowStatus" : "Pending",
+                    "workflowType": "NAV",
+                    "asOfDate" : 1541483070066,
+                    "workflowHistory" :
+                        [
+                            {  
+                                "postedBy" : "Shefali",
+                                "postedDate" :1541783070066,
+                                "description" : "Initiated On"
+                            },
+                            {  
+                                "postedBy" : "Aaron",
+                                "postedDate" :1541983070066,
+                                "description" : "Approved On"
+                            }
+                        ]
+                },
+                {
+                    "workflowId":4,
+                    "fundId":"9012",
+                    "fundName":"Franklin Group Younder's Participants Fund",
+                    "fundCode" : "FCGYPX",
+                    "workflowStatus" : "Approved",
+                    "workflowType": "EXPENSE",
+                    "asOfDate" : 1541982070066,
+                    "amount":"22667.12",
+                    "fundCurrencyType": "USD",
+                    "workflowHistory" :
+                        [
+                            {  
+                                "postedBy" : "Jesse",
+                                "postedDate" :1541983070066,
+                                "description" : "Initiated On"
+                            },
+                            {  
+                                "postedBy" : "Anant",
+                                "postedDate" :1541983070066,
+                                "description" : "Approved On"
+                            }
+                        ]
+                },
+                {
+                    "workflowId" :5,
+                    "fundId":"8789",
+                    "fundName":"Franklin Federal 500 Index Fund",
+                    "fundCode":"FCGSX",
+                    "workflowStatus" : "Paid",
+                    "workflowType": "EXPENSE",
+                    "asOfDate" : 1541983070066,
+                    "amount":"20667.12",
+                    "fundCurrencyType": "USD",
+                    "workflowHistory" :
+                        [
+                            {  
+                                "postedBy" : "Noel",
+                                "postedDate" :1541983070066,
+                                "description" : "Initiated On"
+                            },
+                            {  
+                                "postedBy" : "Holly",
+                                "postedDate" :1541983070066,
+                                "description" : "Approved On"
+                            }
+                        ]
+                },
+                {
+                    "workflowId":6,
+                    "fundId":"8789",
+                    "fundCode":"FSENX",
+                    "fundName":"Fidelity Select Energy Portfolio Fund",
+                    "workflowStatus" : "Approved",
+                    "workflowType": "NAV",
+                    "asOfDate" : 1541983070066,
+                    "workflowHistory" :
+                        [
+                            {  
+                                "postedBy" : "Brian",
+                                "postedDate" :1441283070066,
+                                "description" : "Initiated On"
+                            },
+                            {  
+                                "postedBy" : "Dana",
+                                "postedDate" :1541483070066,
+                                "description" : "Approved On"
+                            }
+                        ]
+                }
+    
+            ]
+        }
+    }  
+}
