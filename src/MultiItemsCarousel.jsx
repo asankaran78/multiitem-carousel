@@ -1,10 +1,12 @@
 import React from "react";
+import ReactDOM from "react-dom";
 import ItemsCarousel from "react-items-carousel";
 import myJson from "./carouseldata.json";
 import SideDataBar from "./SideDataBar";
 import statusImage from "./icon-pending.svg";
 
 class MultiItemsCarousel extends React.Component {
+
   componentWillMount() {
     this.setState({
       children: [],
@@ -16,7 +18,7 @@ class MultiItemsCarousel extends React.Component {
       asofdate:'',
       funddetails:'',
       amountinfo:'',
-      parentclass:'carouselDisplay',
+      divClickId:'',
       render:false
     });
 
@@ -28,7 +30,10 @@ class MultiItemsCarousel extends React.Component {
   }
 
   handleIndexClick = event => {
-    
+    if(this.state.divClickId!==event.currentTarget.dataset.divId && this.state.divClickId!=="" ){
+     let prevSelectedNode = document.querySelector(".carouselDisplayPressed");
+     prevSelectedNode.classList.replace("carouselDisplayPressed","carouselDisplay");
+    }
     this.setState({
        funddetails:event.currentTarget.dataset.fundDetails,
        workflowtype:event.currentTarget.dataset.workflowType,
@@ -36,10 +41,10 @@ class MultiItemsCarousel extends React.Component {
        asofdate:this.convertDate(event.currentTarget.dataset.asOfDate),
        amountinfo:event.currentTarget.dataset.amountInfo,
        workflowhistory: event.currentTarget.dataset.workflowHistory,
-       parentclass:"carouselDisplayPressed",
+       divClickId:event.currentTarget.dataset.divId,
        render:true
     });
-     
+    event.currentTarget.className ="carouselDisplayPressed";   
   }
 
   convertDate = (inputDate) => {
@@ -62,9 +67,9 @@ class MultiItemsCarousel extends React.Component {
   createChildren = () =>{
     var arr = [];
     for(let i=0;i<this.state.navSummary.response.length;i++){
-        arr.push(<div
+        arr.push(<div data-div-id={"carousel"+ i}
           key={i + 1}
-          className={this.state.parentclass}
+          className="carouselDisplay"
           onClick={this.handleIndexClick}    
           data-as-of-date={this.state.navSummary.response[i].asOfDate}  
           data-workflow-status={this.state.navSummary.response[i].workflowStatus} 
